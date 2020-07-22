@@ -1,2 +1,2 @@
 # CIFAR10_ResNet
-ResNet model on the CIFAR10 image dataset.
+WideResNet9 model on the CIFAR10 image dataset.
