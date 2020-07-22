@@ -210,13 +210,11 @@ grad_clip = 0.1
 weight_decay = 1e-4
 opt_func = torch.optim.Adam
 
-#%%time
 history += fit_one_cycle(epochs, max_lr, model, train_dl, valid_dl, 
                              grad_clip=grad_clip, 
                              weight_decay=weight_decay, 
                              opt_func=opt_func)
 
-train_time='4:07'
 
 def plot_accuracies(history):
     accuracies = [x['val_acc'] for x in history]
@@ -266,9 +264,14 @@ hyper_params = {
 
 metrics = {
     'train_loss': history[-1].get('train_loss'),
-	'val_acc': val_result['val_acc'],
-	'val_loss': val_result['val_loss'],
-	'test_acc': test_result['val_acc'],
-	'test_loss': test_result['val_loss']
+	'val_acc': history[-1].get('val_acc'),
+	'val_loss': history[-1].get('val_loss')
 }
 
+import json
+
+with open('hyper_params.json', 'w') as fp:
+    json.dump(hyper_params, fp)
+
+with open('metrics.json', 'w') as fp:
+    json.dump(metrics, fp)
