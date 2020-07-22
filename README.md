@@ -1,2 +1,8 @@
-# CIFAR10_ResNet
-WideResNet9 model on the CIFAR10 image dataset.
+# CIFAR10_WideResNet9
+WideResNet9 model on the CIFAR10 image dataset. \n
+Data Processing steps: data normalization (mean=0, sd=1), data augmentation (4px padding, random 32x32 cropping, p=0.5 random horizontal flip). \n
+Network architecture: using residual connections, batch normalization, ReLU activation. \n
+To accelerate learning: learning rate scheduling, gradient clipping. \n
+To prevent overfitting: weight decay (~l2 regularization). \n
+Optimizer: Adam. \n
+Model trained for 30 epochs achieves 92% test accuracy.
