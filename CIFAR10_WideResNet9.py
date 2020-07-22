@@ -271,5 +271,4 @@ metrics = {
 	'test_acc': test_result['val_acc'],
 	'test_loss': test_result['val_loss']
 }
-# train time
 
